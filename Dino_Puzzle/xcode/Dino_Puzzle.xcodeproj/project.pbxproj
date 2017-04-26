@@ -16,32 +16,20 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995581B128DF400A5C623 /* IOKit.framework */; };
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
-		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		884AA8DFDA104653B6C00A98 /* poTextBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F33FED6BC284A8AA3DBCB27 /* poTextBox.cpp */; };
-		A5540159C5FD479BA13CE34F /* poShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E281296DBA846E698574627 /* poShape.cpp */; };
-		A4CABB3F3FCC48439328BD27 /* poScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9017ED32033946458AE5DA6B /* poScene.cpp */; };
-		890A78F04E114B5594D80582 /* poNodeContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C946FBC04F5EAFCFC608 /* poNodeContainer.cpp */; };
 		27F5CA0F37F44BD0A232110D /* poNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C48C294DBD410AB7BB9709 /* poNode.cpp */; };
+		50898C8C1EB12F7100818C2F /* DigScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50898C8A1EB12F7100818C2F /* DigScreen.cpp */; };
+		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		56697E8A05F2448DBC19C401 /* poMatrixSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F463A64C36F401CA03661D2 /* poMatrixSet.cpp */; };
-		A27B8DF416444B14ADF4A032 /* poImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914E152F75CC4E158CA27A90 /* poImage.cpp */; };
-		FBF355C678114F17ADCEAE88 /* poEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E88C8A464639982F835E /* poEvents.cpp */; };
-		D72CAA43A5F34015B9E4D374 /* poEventCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98A4F456CBCB4994A251017E /* poEventCenter.cpp */; };
-		0526F670C544485391A23194 /* poVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F1B12ABFB3E41049BC10BB9 /* poVideo.h */; };
-		53965CD408DB47159E08AF90 /* poTextureFit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3A30FFF64ED4B539F7164D5 /* poTextureFit.h */; };
-		B786424D03854D2AA5B6B6FA /* poTextBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 54B0A3DC0B0147DEA4F27DA1 /* poTextBox.h */; };
-		5006F49BCB0A40EBADE676B0 /* poShape.h in Headers */ = {isa = PBXBuildFile; fileRef = 7820A49152CC4B49842EBAEE /* poShape.h */; };
-		44E170F3203141859C41EC5E /* poScene.h in Headers */ = {isa = PBXBuildFile; fileRef = 0983A4290D7246BFA4E43479 /* poScene.h */; };
-		167F47C5F06D41AAADDAB3F5 /* poNodeContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 34AF47BF73324533AADBFAB9 /* poNodeContainer.h */; };
-		9BB2FFA379794672B7635835 /* poNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F13C89332884B4EABE82085 /* poNode.h */; };
-		975808688B4D429FBF13EE04 /* poMatrixSet.h in Headers */ = {isa = PBXBuildFile; fileRef = D21BD69097834457BBE13B06 /* poMatrixSet.h */; };
-		8503508E3D254241BF2858E8 /* poImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B21C2F2305C2490AB1249DC5 /* poImage.h */; };
-		93C336FC3DC040E88410A066 /* poEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FF7CD771BE84600ACB1B686 /* poEvents.h */; };
-		EE6A41DE8D8F47D19B05643E /* poEventCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 03775B91EC2E4811BD7827DC /* poEventCenter.h */; };
-		0C8C3BF76D5B490F866CB43B /* Dino_Puzzle_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */; };
 		6CC15AD5080C4BEB84375E67 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE8B9732A3384150934825C9 /* CinderApp.icns */; };
-		713EFC1CEFC54B4AA92E97C1 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 710910DBFC944832878EEF49 /* Resources.h */; };
+		884AA8DFDA104653B6C00A98 /* poTextBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F33FED6BC284A8AA3DBCB27 /* poTextBox.cpp */; };
+		890A78F04E114B5594D80582 /* poNodeContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDB1C946FBC04F5EAFCFC608 /* poNodeContainer.cpp */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8EDB03D10F234EEE913411C0 /* Dino_PuzzleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE998E653A47404581F4912D /* Dino_PuzzleApp.cpp */; };
+		A27B8DF416444B14ADF4A032 /* poImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914E152F75CC4E158CA27A90 /* poImage.cpp */; };
+		A4CABB3F3FCC48439328BD27 /* poScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9017ED32033946458AE5DA6B /* poScene.cpp */; };
+		A5540159C5FD479BA13CE34F /* poShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6E281296DBA846E698574627 /* poShape.cpp */; };
+		D72CAA43A5F34015B9E4D374 /* poEventCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98A4F456CBCB4994A251017E /* poEventCenter.cpp */; };
+		FBF355C678114F17ADCEAE88 /* poEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C52E88C8A464639982F835E /* poEvents.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,36 +42,38 @@
 		00B784B20FF439BC000DE1D7 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		00B995581B128DF400A5C623 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		00B995591B128DF400A5C623 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
+		03775B91EC2E4811BD7827DC /* poEventCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poEventCenter.h; path = ../blocks/poScene/src/poScene/poEventCenter.h; sourceTree = "<group>"; };
+		0983A4290D7246BFA4E43479 /* poScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poScene.h; path = ../blocks/poScene/src/poScene/poScene.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Dino_Puzzle_Prefix.pch; sourceTree = "<group>"; };
+		1F13C89332884B4EABE82085 /* poNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poNode.h; path = ../blocks/poScene/src/poScene/poNode.h; sourceTree = "<group>"; };
+		1F463A64C36F401CA03661D2 /* poMatrixSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poMatrixSet.cpp; path = ../blocks/poScene/src/poScene/poMatrixSet.cpp; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2FF7CD771BE84600ACB1B686 /* poEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poEvents.h; path = ../blocks/poScene/src/poScene/poEvents.h; sourceTree = "<group>"; };
+		34AF47BF73324533AADBFAB9 /* poNodeContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poNodeContainer.h; path = ../blocks/poScene/src/poScene/poNodeContainer.h; sourceTree = "<group>"; };
+		4F1B12ABFB3E41049BC10BB9 /* poVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poVideo.h; path = ../blocks/poScene/src/poScene/poVideo.h; sourceTree = "<group>"; };
+		50898C8A1EB12F7100818C2F /* DigScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DigScreen.cpp; sourceTree = "<group>"; };
+		50898C8B1EB12F7100818C2F /* DigScreen.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DigScreen.hpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		54B0A3DC0B0147DEA4F27DA1 /* poTextBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poTextBox.h; path = ../blocks/poScene/src/poScene/poTextBox.h; sourceTree = "<group>"; };
+		5D2F44F38483403EBCA7AF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C52E88C8A464639982F835E /* poEvents.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poEvents.cpp; path = ../blocks/poScene/src/poScene/poEvents.cpp; sourceTree = "<group>"; };
+		6E281296DBA846E698574627 /* poShape.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poShape.cpp; path = ../blocks/poScene/src/poScene/poShape.cpp; sourceTree = "<group>"; };
+		710910DBFC944832878EEF49 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		7820A49152CC4B49842EBAEE /* poShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poShape.h; path = ../blocks/poScene/src/poScene/poShape.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Dino_Puzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dino_Puzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE998E653A47404581F4912D /* Dino_PuzzleApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/Dino_PuzzleApp.cpp; sourceTree = "<group>"; name = Dino_PuzzleApp.cpp; };
-		710910DBFC944832878EEF49 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		AE8B9732A3384150934825C9 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
-		5D2F44F38483403EBCA7AF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Dino_Puzzle_Prefix.pch; sourceTree = "<group>"; name = Dino_Puzzle_Prefix.pch; };
-		03775B91EC2E4811BD7827DC /* poEventCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poEventCenter.h; sourceTree = "<group>"; name = poEventCenter.h; };
-		2FF7CD771BE84600ACB1B686 /* poEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poEvents.h; sourceTree = "<group>"; name = poEvents.h; };
-		B21C2F2305C2490AB1249DC5 /* poImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poImage.h; sourceTree = "<group>"; name = poImage.h; };
-		D21BD69097834457BBE13B06 /* poMatrixSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poMatrixSet.h; sourceTree = "<group>"; name = poMatrixSet.h; };
-		1F13C89332884B4EABE82085 /* poNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poNode.h; sourceTree = "<group>"; name = poNode.h; };
-		34AF47BF73324533AADBFAB9 /* poNodeContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poNodeContainer.h; sourceTree = "<group>"; name = poNodeContainer.h; };
-		0983A4290D7246BFA4E43479 /* poScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poScene.h; sourceTree = "<group>"; name = poScene.h; };
-		7820A49152CC4B49842EBAEE /* poShape.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poShape.h; sourceTree = "<group>"; name = poShape.h; };
-		54B0A3DC0B0147DEA4F27DA1 /* poTextBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poTextBox.h; sourceTree = "<group>"; name = poTextBox.h; };
-		D3A30FFF64ED4B539F7164D5 /* poTextureFit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poTextureFit.h; sourceTree = "<group>"; name = poTextureFit.h; };
-		4F1B12ABFB3E41049BC10BB9 /* poVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../blocks/poScene/src/poScene/poVideo.h; sourceTree = "<group>"; name = poVideo.h; };
-		98A4F456CBCB4994A251017E /* poEventCenter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poEventCenter.cpp; sourceTree = "<group>"; name = poEventCenter.cpp; };
-		6C52E88C8A464639982F835E /* poEvents.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poEvents.cpp; sourceTree = "<group>"; name = poEvents.cpp; };
-		914E152F75CC4E158CA27A90 /* poImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poImage.cpp; sourceTree = "<group>"; name = poImage.cpp; };
-		1F463A64C36F401CA03661D2 /* poMatrixSet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poMatrixSet.cpp; sourceTree = "<group>"; name = poMatrixSet.cpp; };
-		A5C48C294DBD410AB7BB9709 /* poNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poNode.cpp; sourceTree = "<group>"; name = poNode.cpp; };
-		EDB1C946FBC04F5EAFCFC608 /* poNodeContainer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poNodeContainer.cpp; sourceTree = "<group>"; name = poNodeContainer.cpp; };
-		9017ED32033946458AE5DA6B /* poScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poScene.cpp; sourceTree = "<group>"; name = poScene.cpp; };
-		6E281296DBA846E698574627 /* poShape.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poShape.cpp; sourceTree = "<group>"; name = poShape.cpp; };
-		8F33FED6BC284A8AA3DBCB27 /* poTextBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../blocks/poScene/src/poScene/poTextBox.cpp; sourceTree = "<group>"; name = poTextBox.cpp; };
+		8F33FED6BC284A8AA3DBCB27 /* poTextBox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poTextBox.cpp; path = ../blocks/poScene/src/poScene/poTextBox.cpp; sourceTree = "<group>"; };
+		9017ED32033946458AE5DA6B /* poScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poScene.cpp; path = ../blocks/poScene/src/poScene/poScene.cpp; sourceTree = "<group>"; };
+		914E152F75CC4E158CA27A90 /* poImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poImage.cpp; path = ../blocks/poScene/src/poScene/poImage.cpp; sourceTree = "<group>"; };
+		98A4F456CBCB4994A251017E /* poEventCenter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poEventCenter.cpp; path = ../blocks/poScene/src/poScene/poEventCenter.cpp; sourceTree = "<group>"; };
+		A5C48C294DBD410AB7BB9709 /* poNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poNode.cpp; path = ../blocks/poScene/src/poScene/poNode.cpp; sourceTree = "<group>"; };
+		AE8B9732A3384150934825C9 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
+		B21C2F2305C2490AB1249DC5 /* poImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poImage.h; path = ../blocks/poScene/src/poScene/poImage.h; sourceTree = "<group>"; };
+		D21BD69097834457BBE13B06 /* poMatrixSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poMatrixSet.h; path = ../blocks/poScene/src/poScene/poMatrixSet.h; sourceTree = "<group>"; };
+		D3A30FFF64ED4B539F7164D5 /* poTextureFit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poTextureFit.h; path = ../blocks/poScene/src/poScene/poTextureFit.h; sourceTree = "<group>"; };
+		EDB1C946FBC04F5EAFCFC608 /* poNodeContainer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = poNodeContainer.cpp; path = ../blocks/poScene/src/poScene/poNodeContainer.cpp; sourceTree = "<group>"; };
+		EE998E653A47404581F4912D /* Dino_PuzzleApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = Dino_PuzzleApp.cpp; path = ../src/Dino_PuzzleApp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +98,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				D36B6E538492470A94F0F548 /* poScene */,
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				EE998E653A47404581F4912D /* Dino_PuzzleApp.cpp */,
+				50898C8A1EB12F7100818C2F /* DigScreen.cpp */,
+				50898C8B1EB12F7100818C2F /* DigScreen.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -164,6 +164,33 @@
 			name = Dino_Puzzle;
 			sourceTree = "<group>";
 		};
+		29B97315FDCFA39411CA2CEA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				710910DBFC944832878EEF49 /* Resources.h */,
+				1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AE8B9732A3384150934825C9 /* CinderApp.icns */,
+				5D2F44F38483403EBCA7AF64 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7CCB8681042D435B8308A197 /* poScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,41 +234,6 @@
 			name = poScene;
 			sourceTree = "<group>";
 		};
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				D36B6E538492470A94F0F548 /* poScene */,
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				710910DBFC944832878EEF49 /* Resources.h */,
-				1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */,
-			);
-			name = Headers;
-			sourceTree = "<group>";
-		};
-		29B97317FDCFA39411CA2CEA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AE8B9732A3384150934825C9 /* CinderApp.icns */,
-				5D2F44F38483403EBCA7AF64 /* Info.plist */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +260,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Dino_Puzzle" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -310,6 +304,7 @@
 				56697E8A05F2448DBC19C401 /* poMatrixSet.cpp in Sources */,
 				27F5CA0F37F44BD0A232110D /* poNode.cpp in Sources */,
 				890A78F04E114B5594D80582 /* poNodeContainer.cpp in Sources */,
+				50898C8C1EB12F7100818C2F /* DigScreen.cpp in Sources */,
 				A4CABB3F3FCC48439328BD27 /* poScene.cpp in Sources */,
 				A5540159C5FD479BA13CE34F /* poShape.cpp in Sources */,
 				884AA8DFDA104653B6C00A98 /* poTextBox.cpp in Sources */,
@@ -323,17 +318,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dino_Puzzle_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Dino_Puzzle_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -355,12 +350,12 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Dino_Puzzle_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Dino_Puzzle_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -377,7 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../..";
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				ENABLE_TESTABILITY = YES;
@@ -387,10 +382,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(CINDER_PATH)/include\" ../include",
-					../blocks/poScene/src/poScene,
-				);
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/poScene/src/poScene";
 			};
 			name = Debug;
 		};
@@ -398,7 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../..";
+				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -406,10 +398,7 @@
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = (
-					"\"$(CINDER_PATH)/include\" ../include",
-					../blocks/poScene/src/poScene,
-				);
+				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include ../blocks/poScene/src/poScene";
 			};
 			name = Release;
 		};
