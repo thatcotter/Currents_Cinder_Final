@@ -6,14 +6,18 @@
 //
 //
 
+#include "poNodeContainer.h"
+#include "poShape.h"
+
 #ifndef DigScreen_hpp
 #define DigScreen_hpp
+
 
 class DigScreen;
 
 typedef std::shared_ptr<DigScreen> DigScreenRef;
 
-class DigScreen
+class DigScreen : public po::scene::NodeContainer
 {
 public:
     static DigScreenRef create();
