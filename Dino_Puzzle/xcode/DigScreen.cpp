@@ -7,3 +7,11 @@
 //
 
 #include "DigScreen.hpp"
+
+
+DigScreenRef DigScreen::create()
+{
+    DigScreenRef ref = std::shared_ptr<DigScreen>( new DigScreen());
+    ref->setup();
+    return ref;
+}
