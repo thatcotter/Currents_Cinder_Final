@@ -15,3 +15,23 @@ DigScreenRef DigScreen::create()
     ref->setup();
     return ref;
 }
+
+DigScreen::DigScreen()
+{
+    
+}
+
+void DigScreen::setup()
+{
+    
+}
+
+void DigScreen::update()
+{
+    
+}
+
+void DigScreen::draw()
+{
+    
+}
