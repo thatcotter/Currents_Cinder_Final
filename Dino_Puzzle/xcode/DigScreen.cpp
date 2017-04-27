@@ -16,14 +16,34 @@ DigScreenRef DigScreen::create()
     return ref;
 }
 
-DigScreen::DigScreen()
-{
-    
-}
+//DigScreen::DigScreen()
+//{
+//    
+//}
 
 void DigScreen::setup()
 {
-    
+    try
+    {
+//        _dirtTexture = cinder::gl::Texture::create( loadImage( cinder::app::loadAsset( "it_me.jpg" ) ) );
+//        _dirtSurface = loadImage( cinder::app::loadAsset( "it_me.jpg" ) );
+        
+    } catch (ci::Exception& e)
+    {
+        ci::app::console() << e.what() << std::endl;
+    }
+}
+
+void DigScreen::mouseDown(po::scene::MouseEvent event)
+{
+    switch (event.getType()) {
+        case po::scene::MouseEvent::DOWN_INSIDE:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 void DigScreen::update()

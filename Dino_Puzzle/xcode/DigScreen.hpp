@@ -22,13 +22,24 @@ class DigScreen : public po::scene::NodeContainer
 public:
     static DigScreenRef create();
     
+    void mouseDown(po::scene::MouseEvent event);
+    
     void update();
     void draw();
-    
     
 private:
     DigScreen();
     void setup();
+    
+    void renderToFbo();
+    
+    ci::gl::FboRef      _dirtFbo;
+    
+    ci::gl::BatchRef    _dirtBatch;
+    ci::gl::GlslProg    _dirtShade;
+    
+    ci::gl::TextureRef  _dirtTexture;
+    ci::gl::TextureRef  _maskTexture;
     
 };
 #endif /* DigScreen_hpp */
