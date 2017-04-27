@@ -23,20 +23,18 @@ typedef std::shared_ptr<Bones> BonesRef;
 
 class Bones: public po::scene::NodeContainer{
 public:
-    static BonesRef create(string _path,vec2 _currentPos,vec2 _targetPos);
-//    void setPath();
+    Bones();
+    static BonesRef create(fs::path _path,vec2 _currentPos,vec2 _targetPos);
     void update(vec2 _mousePos);
     void display();
     
 private:
-    Bones();
-    void setup(string _path,vec2 _currentPos,vec2 _targetPos);
-    void loadImage(string _pathf);
+    void setup(fs::path _path,vec2 _currentPos,vec2 _targetPos);
+    void loadImage(fs::path _pathf);
     void mouseDrag(vec2 _mousePos);
     void onMouseEvent(po::scene::MouseEvent &event);
     void toTarget();
     
-    fs::path imagePath;
     bool isFound;
     bool isDrag;
     bool isPlaced;

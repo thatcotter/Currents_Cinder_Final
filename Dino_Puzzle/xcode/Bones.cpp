@@ -8,7 +8,7 @@
 
 #include "Bones.hpp"
 
-BonesRef Bones::create(string _path,vec2 _currentPos,vec2 _targetPos){
+BonesRef Bones::create(fs::path _path,vec2 _currentPos,vec2 _targetPos){
     BonesRef ref = std::shared_ptr<Bones>(new Bones());
     ref -> setup(_path, _currentPos, _targetPos);
     return ref;
@@ -23,10 +23,9 @@ Bones::Bones()
 {
 }
 
-void Bones::loadImage(string _path){
+void Bones::loadImage(fs::path _path){
     try {
-        imagePath = app::getAssetPath(_path);
-        mTexture = gl::Texture::create(loadImage(loadAsset(imagePath)));
+        mTexture = gl::Texture::create(ci::loadImage(loadAsset(_path)));
     } catch (exception &e) {
         ci::app::console() << e.what() << std::endl;
     }
@@ -34,7 +33,7 @@ void Bones::loadImage(string _path){
     addChild(mImage);
 }
 
-void Bones::setup(string _path,vec2 _currentPos,vec2 _targetPos){
+void Bones::setup(fs::path _path,vec2 _currentPos,vec2 _targetPos){
     loadImage(_path);
     currentPos = _currentPos;
     targetPos = _targetPos;
@@ -42,7 +41,7 @@ void Bones::setup(string _path,vec2 _currentPos,vec2 _targetPos){
     mImage -> setPosition(currentPos);
     mImage -> setAlignment(po::scene::Alignment::CENTER_CENTER);
     
-    getSignal(po::scene::MouseEvent::DOWN_INSIDE).connect(std::bind(&Bar::onMouseEvent, this, std::placeholders::_1));
+    getSignal(po::scene::MouseEvent::DOWN_INSIDE).connect(std::bind(&Bones::onMouseEvent, this, std::placeholders::_1));
 }
 
 void Bones::mouseDrag(vec2 _mousePos){
@@ -78,9 +77,11 @@ void Bones::toTarget(){
 void Bones::update(vec2 _mousePos){
     mouseDrag(_mousePos);
     toTarget();
+    display();
 }
 
 void Bones::display(){
+    mImage -> setScale(0.4f);
     mImage -> setVisible(false);
     
     if (isFound == true) {

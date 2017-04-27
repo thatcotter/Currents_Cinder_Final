@@ -29,38 +29,25 @@ class AssemblyScene: public po::scene::NodeContainer{
     
 public:
     static AssemblySceneRef create(float _width, float _height);
-    void update();
+    void update(vec2 _mousePos);
+    void getMousePos(vec2 _mousePos);
     
 private:
     AssemblyScene();
     void setup(float _width, float _height);
     void setBones();
-//    void loadImages();
-//    void drag();
     void setbackground();
     
     bool head1Founded, head2Founded, backlegsFounded, frontlegsFounded, midspineFounded, tailFounded;
-    
-    //current position
-//    vec2 head1Pos, head2Pos, backlegsPos, frontlegsPos, midspinePos, tailPos;
-    
-    //target position
-//    vec2 head1Target, head2Target, backlegsTarget, frontlegsTarget, midspineTarget, tailTarget;
-    
-//    gl::TextureRef head1, head2, backlegs, frontlegs, midspine, tail;
+
     gl::TextureRef shadow;
     
     //background
     po::scene::ShapeRef mBgRect;
     po::scene::ImageRef mShadow;
     
-//    po::scene::ImageRef mHead1, mHead2, mBacklegs, mFrontlegs, mMidspine, mTail;
-//    vector<po::scene::ImageRef> Bones;
-//    vector<bool> pieceFounded;
-    
     float mWidth, mHeight;
-    
-    //add Bones Class
-//    Bones mHead1, mHead2, mBacklegs, mFrontlegs, mMidspine, mTail;
-    vector<Bones> Bones;
+    vec2 mousePos;
+    //Bone Class
+    vector<BonesRef> mBones;
 };
