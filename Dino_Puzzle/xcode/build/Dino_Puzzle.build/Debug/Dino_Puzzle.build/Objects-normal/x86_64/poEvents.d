@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poEvents.cpp \
+  /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poEvents.cpp \
   ../blocks/poScene/src/poScene/poEvents.h \
   ../blocks/poScene/src/poScene/poNode.h \
   ../../../include/cinder/Timeline.h \

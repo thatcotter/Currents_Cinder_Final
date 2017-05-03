@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poShape.cpp \
+  /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poShape.cpp \
   ../../../include/cinder/Triangulate.h \
   ../blocks/poScene/src/poScene/poShape.h \
   ../blocks/poScene/src/poScene/poNode.h \

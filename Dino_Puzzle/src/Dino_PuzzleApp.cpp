@@ -7,6 +7,7 @@
 #include "poTextBox.h"
 
 #include "AssemblyScene.hpp"
+#include "DigScreen.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -19,8 +20,11 @@ class Dino_PuzzleApp : public App {
 	void update() override;
 	void draw() override;
     
+    DigScreenRef mDigScreen;
+    
     po::scene::SceneRef mScene;
     po::scene::NodeContainerRef mNodeContainer_Assembly;
+    po::scene::NodeContainerRef mNodeContainer_Dig;
     
     AssemblySceneRef mAssemblyScene;
     float windowWidth = 1280;
@@ -32,6 +36,7 @@ class Dino_PuzzleApp : public App {
 void Dino_PuzzleApp::setup()
 {
     mNodeContainer_Assembly = po::scene::NodeContainer::create();
+    mNodeContainer_Dig = po::scene::NodeContainer::create();
     mScene = po::scene::Scene::create(mNodeContainer_Assembly);
     
     ci::app::setWindowSize(windowWidth,windowHeight);
@@ -40,6 +45,11 @@ void Dino_PuzzleApp::setup()
     mAssemblyScene = AssemblyScene::create(windowWidth,windowHeight);
     mAssemblyScene -> setPosition(vec2(0.f,0.f));
     mNodeContainer_Assembly -> addChild(mAssemblyScene);
+    
+    //Dig Scene
+    mDigScreen = DigScreen::create();
+    mAssemblyScene -> setPosition(vec2(0.f,0.f));
+    mNodeContainer_Assembly -> addChild(mDigScreen);
 }
 
 void Dino_PuzzleApp::mouseMove( MouseEvent event )
