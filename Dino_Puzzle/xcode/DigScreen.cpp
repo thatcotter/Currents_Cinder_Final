@@ -18,7 +18,7 @@ DigScreenRef DigScreen::create()
 
 DigScreen::DigScreen()
 :FBO_WIDTH(1280)
-,FBO_HEIGHT(800)
+,FBO_HEIGHT(1024)
 {
     
 }
@@ -59,9 +59,12 @@ void DigScreen::mouseDown(po::scene::MouseEvent event)
 
 void DigScreen::renderToFbo()
 {
+    ci::gl::ScopedFramebuffer fbScp( _dirtFbo );
     ci::gl::enableAlphaBlending();
     
     ci::gl::color( ci::ColorA( 1.f, 1.f, 1.f, 1.f) );
+    
+    ci::gl::ScopedViewport scpVp( ci::ivec2( 0 ), _dirtFbo->getSize() );
     
     ci::Area bounds = _dirtTexture->getBounds();
     std::swap<int32_t>( bounds.y1, bounds.y2 );
