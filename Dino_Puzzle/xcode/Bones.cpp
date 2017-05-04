@@ -8,14 +8,14 @@
 
 #include "Bones.hpp"
 
-BonesRef Bones::create(fs::path _path,vec2 _currentPos,vec2 _targetPos){
+BonesRef Bones::create(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound){
     BonesRef ref = std::shared_ptr<Bones>(new Bones());
-    ref -> setup(_path, _currentPos, _targetPos);
+    ref -> setup(_path, _currentPos, _targetPos, _isFound);
     return ref;
 }
 
 Bones::Bones()
-:isFound(false)
+:isFound(true)
 ,isDrag(false)
 ,isPlaced(false)
 ,currentPos(vec2(0.f,0.f))
@@ -33,10 +33,15 @@ void Bones::loadImage(fs::path _path){
     addChild(mImage);
 }
 
-void Bones::setup(fs::path _path,vec2 _currentPos,vec2 _targetPos){
+void Bones::setup(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound){
     loadImage(_path);
     currentPos = _currentPos;
     targetPos = _targetPos;
+    isFound = _isFound;
+    
+    mAnimationTime = 0.2f;
+    fullScale = 0.8f;
+    smallScale = 0.4f;
     
     mImage -> setPosition(currentPos);
     mImage -> setAlignment(po::scene::Alignment::CENTER_CENTER);
@@ -48,6 +53,8 @@ void Bones::mouseDrag(vec2 _mousePos){
     mousePos = _mousePos;
     if (isDrag) {
         currentPos = mousePos;
+        cout << currentPos << endl;
+        mBoneDragSignal.emit(true);
     }
 }
 
@@ -57,7 +64,6 @@ void Bones::onMouseEvent(po::scene::MouseEvent &event){
         case po::scene::MouseEvent::DOWN_INSIDE:
             isDrag = !isDrag;
             break;
-
         default:
             break;
     }
@@ -65,12 +71,17 @@ void Bones::onMouseEvent(po::scene::MouseEvent &event){
 
 void Bones::toTarget(){
     float distance = sqrt(((currentPos.x-targetPos.x)*(currentPos.x-targetPos.x))+((currentPos.y-targetPos.y)*(currentPos.y-targetPos.y)));
-    int threshold = 10;
+    int threshold = 100;
     if(!isDrag){
         if(distance < threshold){
             currentPos = targetPos;
             isPlaced = true;
         }
+    }
+    
+    if (isPlaced) {
+        cout << "Correct" << endl;
+        mImage -> setFillColor(ci::Color(0.2f,0.2f,0.2f));
     }
 }
 
@@ -78,11 +89,18 @@ void Bones::update(vec2 _mousePos){
     mouseDrag(_mousePos);
     toTarget();
     display();
+    if (currentPos.y < 600) {
+//        cout << "Bigger" << endl;
+        ci::app::timeline().apply(&mImage->getScaleAnim(), vec2(1.f,1.f), mAnimationTime,ci::EaseOutExpo());
+    }else{
+        ci::app::timeline().apply(&mImage->getScaleAnim(), vec2(0.5f,0.5f), mAnimationTime,ci::EaseOutExpo());
+    }
 }
 
 void Bones::display(){
-    mImage -> setScale(0.4f);
+    mImage -> setPosition(currentPos);
     mImage -> setVisible(false);
+    mImage -> setAlignment(po::scene::Alignment::CENTER_CENTER);
     
     if (isFound == true) {
         mImage -> setVisible(true);

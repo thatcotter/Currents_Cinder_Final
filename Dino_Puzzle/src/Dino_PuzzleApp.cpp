@@ -24,13 +24,15 @@ class Dino_PuzzleApp : public App {
     
     AssemblySceneRef mAssemblyScene;
     float windowWidth = 1280;
-    float windowHeight = 800;
+    float windowHeight = 1024;
     
     vec2 mousePos;
 };
 
 void Dino_PuzzleApp::setup()
 {
+//    ci::app::setFullScreen(true);
+    
     mNodeContainer_Assembly = po::scene::NodeContainer::create();
     mScene = po::scene::Scene::create(mNodeContainer_Assembly);
     
@@ -55,8 +57,15 @@ void Dino_PuzzleApp::update()
 
 void Dino_PuzzleApp::draw()
 {
-	gl::clear( Color( 0, 0, 0 ) );
+	gl::clear( Color( 1, 1, 1 ) );
     mScene -> draw();
+//    gl::drawSolidCircle(vec2(1000,230), 5);
+//    gl::drawSolidCircle(vec2(1040,335), 5);
+//    gl::drawSolidCircle(vec2(540,380), 5);
+//    gl::drawSolidCircle(vec2(778,344), 5);
+//    gl::drawSolidCircle(vec2(645,230), 5);
+//    gl::drawSolidCircle(vec2(310,260), 5);
+    
 }
 
 CINDER_APP( Dino_PuzzleApp, RendererGl )

@@ -37,14 +37,18 @@ private:
     void setup(float _width, float _height);
     void setBones();
     void setbackground();
+    void instruction();
+    void ifDragHideInstruction();
     
     bool head1Founded, head2Founded, backlegsFounded, frontlegsFounded, midspineFounded, tailFounded;
 
     gl::TextureRef shadow;
+    gl::TextureRef finger;
     
     //background
     po::scene::ShapeRef mBgRect;
     po::scene::ImageRef mShadow;
+    po::scene::ImageRef mFinger;
     
     float mWidth, mHeight;
     vec2 mousePos;

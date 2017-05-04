@@ -20,16 +20,18 @@ using namespace std;
 class Bones;
 
 typedef std::shared_ptr<Bones> BonesRef;
+typedef ci::signals::Signal<void(bool state)> BoneDragSignal;
 
 class Bones: public po::scene::NodeContainer{
 public:
     Bones();
-    static BonesRef create(fs::path _path,vec2 _currentPos,vec2 _targetPos);
+    static BonesRef create(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound);
     void update(vec2 _mousePos);
     void display();
+    BoneDragSignal &getBoneDragSignal(){return mBoneDragSignal;}
     
 private:
-    void setup(fs::path _path,vec2 _currentPos,vec2 _targetPos);
+    void setup(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound);
     void loadImage(fs::path _pathf);
     void mouseDrag(vec2 _mousePos);
     void onMouseEvent(po::scene::MouseEvent &event);
@@ -43,4 +45,9 @@ private:
     vec2 mousePos;
     gl::TextureRef mTexture;
     po::scene::ImageRef mImage;
+    
+    float mAnimationTime;
+    float fullScale, smallScale;
+    
+    BoneDragSignal mBoneDragSignal;
 };
