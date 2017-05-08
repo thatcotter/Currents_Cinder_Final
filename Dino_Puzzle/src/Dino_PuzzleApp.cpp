@@ -31,6 +31,7 @@ class Dino_PuzzleApp : public App {
     float windowHeight = 1024;
     
     vec2 mousePos;
+    
 };
 
 void Dino_PuzzleApp::setup()
@@ -61,14 +62,14 @@ void Dino_PuzzleApp::update()
 {
     mScene -> update();
     mAssemblyScene -> update(mousePos);
-    mDigScreen->update();
+//    mDigScreen->update();
 }
 
 void Dino_PuzzleApp::draw()
 {
 	gl::clear( Color( 0, 0, 0 ) );
     mScene -> draw();
-    mDigScreen->draw();
+//    mDigScreen->draw();
 }
 
 CINDER_APP( Dino_PuzzleApp, RendererGl )

@@ -29,6 +29,8 @@ public:
     void update();
     void draw();
     
+    void drawDigBrush( ci::ivec2 pos );
+    
 private:
     DigScreen();
     void setup();
@@ -37,14 +39,20 @@ private:
     int FBO_WIDTH;
     int FBO_HEIGHT;
     
-    ci::gl::FboRef      _dirtFbo;
+    float mDepthMapBaseline = 1.f;
+    float mDepthThreshold = 1.f;
+    float mDepthSmooth = 1.f;
     
-    ci::gl::BatchRef    _dirtBatch;
-//    ci::gl::GlslProg    _dirtShade;
-    po::scene::ImageRef _dirt2;
+    int mCurrentDigCanvasFboIndex;
     
-    ci::gl::TextureRef  _dirtTexture;
-    ci::gl::TextureRef  _maskTexture;
+    ci::gl::FboRef         mDigCanvasFbo;
+    ci::gl::Fbo::Format format;
+    
+    ci::gl::TextureRef  mObjectTexture;
+    ci::gl::TextureRef  mDepthMap;
+    
+    ci::gl::BatchRef    mObjectBatch;
+    ci::gl::BatchRef    mDigCanvasBatch;
     
 };
 #endif /* DigScreen_hpp */

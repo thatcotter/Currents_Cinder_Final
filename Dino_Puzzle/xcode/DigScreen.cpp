@@ -8,6 +8,10 @@
 
 #include "DigScreen.hpp"
 
+using namespace ci;
+using namespace ci::app;
+using namespace std;
+
 
 DigScreenRef DigScreen::create()
 {
@@ -19,30 +23,27 @@ DigScreenRef DigScreen::create()
 DigScreen::DigScreen()
 :FBO_WIDTH(1280)
 ,FBO_HEIGHT(1024)
+//,mDigCanvasFbo()
 {
     
 }
 
 void DigScreen::setup()
 {
-    ci::gl::Fbo::Format format;
-    _dirtFbo = ci::gl::Fbo::create( FBO_WIDTH, FBO_HEIGHT, format.colorTexture() );
+//    mDigCanvasFbo = ci::gl::Fbo::create( FBO_WIDTH, FBO_HEIGHT, format.colorTexture() );
+    
+    mObjectTexture = cinder::gl::Texture2d::create(loadImage(cinder::app::loadAsset("dirt1.jpg")));
+    mDepthMap = cinder::gl::Texture2d::create(loadImage(cinder::app::loadAsset("textures/dragon_object_depth_map.png")));
+    auto objectShaders = cinder::gl::GlslProg::create(cinder::app::loadAsset("vertex.vert"), cinder::app::loadAsset("object.frag"));
+    
+    geom::Rect rect = geom::Rect().rect(Rectf(vec2(0, 0), vec2(getWindowWidth(), getWindowHeight())));
+    
+    mObjectBatch = ci::gl::Batch::create( rect, objectShaders);
     
     
-    try
-    {
-        _dirtTexture = cinder::gl::Texture::create( loadImage( cinder::app::loadAsset( "dirt1.jpg" ) ) );
-        
-    } catch (ci::Exception& e)
-    {
-        ci::app::console() << e.what() << std::endl;
-    }
-    
-    _dirt2 = po::scene::Image::create(_dirtTexture);
-    _dirt2 -> setScale(0.5f);
-    _dirt2 -> setPosition(ci::vec2(ci::app::getWindowWidth()/2, ci::app::getWindowHeight()/2-80));
-    _dirt2 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
-    addChild(_dirt2);
+    mObjectBatch->getGlslProg()->uniform("uTex0", 0);
+    mObjectBatch->getGlslProg()->uniform("uTex1", 1);
+    mObjectBatch->getGlslProg()->uniform("uTex2", 2);
 }
 
 void DigScreen::mouseDown(po::scene::MouseEvent event)
@@ -59,29 +60,47 @@ void DigScreen::mouseDown(po::scene::MouseEvent event)
 
 void DigScreen::renderToFbo()
 {
-    ci::gl::ScopedFramebuffer fbScp( _dirtFbo );
+    
+    ci::gl::ScopedColor color(ci::Color::white());
+    ci::gl::ScopedFramebuffer fbScp( mDigCanvasFbo );
     ci::gl::enableAlphaBlending();
-    
-    ci::gl::color( ci::ColorA( 1.f, 1.f, 1.f, 1.f) );
-    
-    ci::gl::ScopedViewport scpVp( ci::ivec2( 0 ), _dirtFbo->getSize() );
-    
-    ci::Area bounds = _dirtTexture->getBounds();
-    std::swap<int32_t>( bounds.y1, bounds.y2 );
-    
-    ci::gl::draw(_dirtTexture, bounds);
-    
+
+    ci::gl::ScopedViewport scpVp( ci::ivec2( 0 ), mDigCanvasFbo->getSize() );
+//    ci::Area bounds = _dirtTexture->getBounds();
+//    std::swap<int32_t>( bounds.y1, bounds.y2 );
+//    
+//    ci::gl::draw(_dirtTexture, bounds);
+//    
     ci::gl::disableAlphaBlending();
+}
+
+void DigScreen::drawDigBrush(ci::ivec2 pos) {
+    mCurrentDigCanvasFboIndex = 1 - mCurrentDigCanvasFboIndex;
+    
+    ci::gl::ScopedFramebuffer scopedFramebuffer(mDigCanvasFbo);
+    ci::gl::ScopedViewport scopedViewport(mDigCanvasFbo->getSize());
+    ci::gl::ScopedMatrices scopedMatrices;
+    ci::gl::setMatricesWindowPersp(mDigCanvasFbo->getSize());
+    ci::gl::translate(-ci::ivec2(FBO_WIDTH, FBO_HEIGHT) / 2 + mDigCanvasFbo->getSize() / 2);
+    
+    mDigCanvasFbo->getColorTexture()->bind(0);
+//    mBrushTexture->bind(1);
+//    mDigCanvasBatch->getGlslProg()->uniform("uPos", ci::vec2(0.5, -0.5) + ci::vec2(-pos.x, pos.y) / ci::vec2(mBrushTexture->getSize()));
+    mDigCanvasBatch->draw();
 }
 
 void DigScreen::update()
 {
     this->renderToFbo();
+//    mObjectBatch->getGlslProg()->uniform("uBaseline", mDepthMapBaseline);
+//    mObjectBatch->getGlslProg()->uniform("uThreshold", mDepthThreshold);
+//    mObjectBatch->getGlslProg()->uniform("uSmooth", mDepthSmooth);
 }
 
 void DigScreen::draw()
 {
-    _dirtFbo->bindTexture();
-//    ci::gl::drawSolidCircle(ci::app::getWindowCenter(), 10);
-    ci::gl::draw( _dirtFbo->getColorTexture(), ci::Rectf( 0, 0, ci::app::getWindowWidth(), ci::app::getWindowWidth() ) );
+    mObjectTexture->bind(0);
+    mDepthMap->bind(1);
+    mDigCanvasFbo->getColorTexture()->bind(2);
+    mObjectBatch->draw();
 }
