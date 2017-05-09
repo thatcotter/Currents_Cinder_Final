@@ -10,6 +10,10 @@
 #include "poShape.h"
 #include "poImage.h"
 
+#include "cinder/Rand.h"
+
+//#include "ParticleSystem.hpp"
+#include "Particle.hpp"
 
 #ifndef DigScreen_hpp
 #define DigScreen_hpp
@@ -24,12 +28,14 @@ class DigScreen : public po::scene::NodeContainer
 public:
     static DigScreenRef create();
     
-    void mouseDown(po::scene::MouseEvent event);
+    void mouseDown(ci::app::MouseEvent event);
     
     void update();
     void draw();
     
     void drawDigBrush( ci::ivec2 pos );
+    void repulseFrom( ci::vec2 pos );
+    void bounceFromEdge();
     
 private:
     DigScreen();
@@ -53,6 +59,20 @@ private:
     
     ci::gl::BatchRef    mObjectBatch;
     ci::gl::BatchRef    mDigCanvasBatch;
+    
+    cinder::Rand mRand;
+    
+    int rows;
+    int cols;
+    std::vector<std::vector<ci::vec2>> grid;
+    std::vector<std::vector<ci::Color>> hues;
+    ci::Color brown;
+    
+//    ParticleSystem mSystem;
+    std::vector<ParticleRef> mParticles;
+    
+    float			mRange;
+    float			mRepulsionFactor;
     
 };
 #endif /* DigScreen_hpp */

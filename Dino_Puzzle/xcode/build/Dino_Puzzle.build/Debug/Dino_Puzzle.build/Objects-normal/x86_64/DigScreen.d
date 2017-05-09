@@ -10,4 +10,6 @@ dependencies: \
   ../blocks/poScene/src/poScene/poEvents.h \
   /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poShape.h \
   ../blocks/poScene/src/poScene/poTextureFit.h \
-  /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poImage.h
+  /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poImage.h \
+  ../../../include/cinder/Rand.h \
+  /Users/andrewcotter/Documents/Code/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/Particle.hpp

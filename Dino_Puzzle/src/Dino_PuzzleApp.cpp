@@ -17,6 +17,7 @@ class Dino_PuzzleApp : public App {
   public:
 	void setup() override;
 	void mouseMove( MouseEvent event ) override;
+    void mouseDrag( MouseEvent event ) override;
 	void update() override;
 	void draw() override;
     
@@ -58,18 +59,24 @@ void Dino_PuzzleApp::mouseMove( MouseEvent event )
     mousePos = event.getPos();
 }
 
+void Dino_PuzzleApp::mouseDrag( MouseEvent event )
+{
+    mDigScreen->mouseDown(event);
+//    cout << "TEST: " << event.getPos() << endl;
+}
+
 void Dino_PuzzleApp::update()
 {
     mScene -> update();
     mAssemblyScene -> update(mousePos);
-//    mDigScreen->update();
+    mDigScreen->update();
 }
 
 void Dino_PuzzleApp::draw()
 {
 	gl::clear( Color( 0, 0, 0 ) );
     mScene -> draw();
-//    mDigScreen->draw();
+    mDigScreen->draw();
 }
 
 CINDER_APP( Dino_PuzzleApp, RendererGl )

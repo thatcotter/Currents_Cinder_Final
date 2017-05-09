@@ -21,86 +21,104 @@ DigScreenRef DigScreen::create()
 }
 
 DigScreen::DigScreen()
-:FBO_WIDTH(1280)
-,FBO_HEIGHT(1024)
-//,mDigCanvasFbo()
 {
     
 }
 
 void DigScreen::setup()
 {
-//    mDigCanvasFbo = ci::gl::Fbo::create( FBO_WIDTH, FBO_HEIGHT, format.colorTexture() );
+    rows = 25;
+    cols = 45;
     
-    mObjectTexture = cinder::gl::Texture2d::create(loadImage(cinder::app::loadAsset("dirt1.jpg")));
-    mDepthMap = cinder::gl::Texture2d::create(loadImage(cinder::app::loadAsset("textures/dragon_object_depth_map.png")));
-    auto objectShaders = cinder::gl::GlslProg::create(cinder::app::loadAsset("vertex.vert"), cinder::app::loadAsset("object.frag"));
+    mRand = Rand();
     
-    geom::Rect rect = geom::Rect().rect(Rectf(vec2(0, 0), vec2(getWindowWidth(), getWindowHeight())));
+    brown = Color( CM_HSV, 0.04, 0.24, 0.26 ) - Color( 0, 0, 0);
     
-    mObjectBatch = ci::gl::Batch::create( rect, objectShaders);
+    for (int i = 0; i < cols + 10; i++) {
+        std::vector<vec2> tempGridCol;
+        std::vector<Color> tempHueCol;
+        for (int j = 0; j < rows + 10; j++) {
+            vec2 tempPoint = vec2( getWindowWidth()/cols * i,
+                                  getWindowHeight()/rows * j);
+            Color tempHue = Color( brown + Color(CM_HSV, 0.f,0.f,(mRand.nextFloat()*0.8f)-0.4f) );
+            tempGridCol.push_back(tempPoint);
+            tempHueCol.push_back(tempHue);
+        }
+        grid.push_back(tempGridCol);
+        hues.push_back(tempHueCol);
+    }
     
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[i].size(); j++) {
+            mParticles.push_back(Particle::create( grid[i][j], hues[i][j]));
+        }
+    }
     
-    mObjectBatch->getGlslProg()->uniform("uTex0", 0);
-    mObjectBatch->getGlslProg()->uniform("uTex1", 1);
-    mObjectBatch->getGlslProg()->uniform("uTex2", 2);
+    cout << "Particles: " << mParticles.size() << endl;
+    
+    mRepulsionFactor = 0.05f;
+    
+    grid.clear();
+    hues.clear();
 }
 
-void DigScreen::mouseDown(po::scene::MouseEvent event)
+void DigScreen::mouseDown(ci::app::MouseEvent event)
 {
-    switch (event.getType()) {
-        case po::scene::MouseEvent::DOWN_INSIDE:
-            std::cout << "digscene clicked" << std::endl;
-            break;
-            
-        default:
-            break;
+    this->repulseFrom(event.getPos());
+}
+
+void DigScreen::repulseFrom(glm::vec2 position)
+{
+    // repulse function
+    for (auto& p : mParticles){
+        float distanceDiff = ci::length(p->getPosition() - position);
+        if (distanceDiff < 20.f){
+            glm::vec2 repulsion = (p->getPosition() - position) * mRepulsionFactor;
+//            cout << "repulsion: " << repulsion << endl;
+            p->applyForce(repulsion);
+        }
     }
 }
 
-void DigScreen::renderToFbo()
+void DigScreen::bounceFromEdge()
 {
-    
-    ci::gl::ScopedColor color(ci::Color::white());
-    ci::gl::ScopedFramebuffer fbScp( mDigCanvasFbo );
-    ci::gl::enableAlphaBlending();
-
-    ci::gl::ScopedViewport scpVp( ci::ivec2( 0 ), mDigCanvasFbo->getSize() );
-//    ci::Area bounds = _dirtTexture->getBounds();
-//    std::swap<int32_t>( bounds.y1, bounds.y2 );
-//    
-//    ci::gl::draw(_dirtTexture, bounds);
-//    
-    ci::gl::disableAlphaBlending();
-}
-
-void DigScreen::drawDigBrush(ci::ivec2 pos) {
-    mCurrentDigCanvasFboIndex = 1 - mCurrentDigCanvasFboIndex;
-    
-    ci::gl::ScopedFramebuffer scopedFramebuffer(mDigCanvasFbo);
-    ci::gl::ScopedViewport scopedViewport(mDigCanvasFbo->getSize());
-    ci::gl::ScopedMatrices scopedMatrices;
-    ci::gl::setMatricesWindowPersp(mDigCanvasFbo->getSize());
-    ci::gl::translate(-ci::ivec2(FBO_WIDTH, FBO_HEIGHT) / 2 + mDigCanvasFbo->getSize() / 2);
-    
-    mDigCanvasFbo->getColorTexture()->bind(0);
-//    mBrushTexture->bind(1);
-//    mDigCanvasBatch->getGlslProg()->uniform("uPos", ci::vec2(0.5, -0.5) + ci::vec2(-pos.x, pos.y) / ci::vec2(mBrushTexture->getSize()));
-    mDigCanvasBatch->draw();
+    for (auto& p : mParticles){
+        // define reaction when hit wall
+        if (p->getPosition().x <= 0.f || p->getPosition().x >= ci::app::getWindowWidth()){
+            p->bounceForce(0.95, false);
+        }
+        
+        if (p->getPosition().y <= 0.f || p->getPosition().y >= ci::app::getWindowHeight()){
+            p->bounceForce(0.95, true);
+        }
+    }
 }
 
 void DigScreen::update()
 {
-    this->renderToFbo();
-//    mObjectBatch->getGlslProg()->uniform("uBaseline", mDepthMapBaseline);
-//    mObjectBatch->getGlslProg()->uniform("uThreshold", mDepthThreshold);
-//    mObjectBatch->getGlslProg()->uniform("uSmooth", mDepthSmooth);
+//    bounceFromEdge();
+    for (auto& p : mParticles){
+        p->update();
+    }
 }
 
 void DigScreen::draw()
 {
-    mObjectTexture->bind(0);
-    mDepthMap->bind(1);
-    mDigCanvasFbo->getColorTexture()->bind(2);
-    mObjectBatch->draw();
+    gl::color(brown);
+    Rectf rect( 0, 0, getWindowWidth(), getWindowHeight() );
+    gl::drawSolidRect(rect);
+    
+//    for (int i = 0; i < grid.size(); i++) {
+//        for (int j = 0; j < grid[i].size(); j++) {
+//            gl::color( hues[i][j] );
+//            Rectf drawrect(grid[i][j].x, grid[i][j].y, grid[i][j].x+6, grid[i][j].y+6);
+//            gl::drawSolidRect(drawrect);
+//            
+//        }
+//    }
+    
+    for (auto& p : mParticles){
+        p->draw();
+    }
+    
 }
