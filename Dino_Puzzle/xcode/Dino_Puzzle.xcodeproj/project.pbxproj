@@ -18,6 +18,7 @@
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
 		0411BDFD1EB165F800D2F9FD /* AssemblyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0411BDF91EB165F800D2F9FD /* AssemblyScene.cpp */; settings = {ASSET_TAGS = (); }; };
 		0411BDFE1EB165F800D2F9FD /* Bones.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0411BDFB1EB165F800D2F9FD /* Bones.cpp */; settings = {ASSET_TAGS = (); }; };
+		041CE5121EC183A200CA101E /* ReplayButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041CE5101EC183A200CA101E /* ReplayButton.cpp */; settings = {ASSET_TAGS = (); }; };
 		27F5CA0F37F44BD0A232110D /* poNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C48C294DBD410AB7BB9709 /* poNode.cpp */; };
 		50898C8C1EB12F7100818C2F /* DigScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50898C8A1EB12F7100818C2F /* DigScreen.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
@@ -49,6 +50,8 @@
 		0411BDFA1EB165F800D2F9FD /* AssemblyScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AssemblyScene.hpp; sourceTree = "<group>"; };
 		0411BDFB1EB165F800D2F9FD /* Bones.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bones.cpp; sourceTree = "<group>"; };
 		0411BDFC1EB165F800D2F9FD /* Bones.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bones.hpp; sourceTree = "<group>"; };
+		041CE5101EC183A200CA101E /* ReplayButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplayButton.cpp; sourceTree = "<group>"; };
+		041CE5111EC183A200CA101E /* ReplayButton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReplayButton.hpp; sourceTree = "<group>"; };
 		0983A4290D7246BFA4E43479 /* poScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poScene.h; path = ../blocks/poScene/src/poScene/poScene.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Dino_Puzzle_Prefix.pch; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				0411BDFA1EB165F800D2F9FD /* AssemblyScene.hpp */,
 				0411BDFB1EB165F800D2F9FD /* Bones.cpp */,
 				0411BDFC1EB165F800D2F9FD /* Bones.hpp */,
+				041CE5101EC183A200CA101E /* ReplayButton.cpp */,
+				041CE5111EC183A200CA101E /* ReplayButton.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			files = (
 				0411BDFD1EB165F800D2F9FD /* AssemblyScene.cpp in Sources */,
 				8EDB03D10F234EEE913411C0 /* Dino_PuzzleApp.cpp in Sources */,
+				041CE5121EC183A200CA101E /* ReplayButton.cpp in Sources */,
 				D72CAA43A5F34015B9E4D374 /* poEventCenter.cpp in Sources */,
 				FBF355C678114F17ADCEAE88 /* poEvents.cpp in Sources */,
 				A27B8DF416444B14ADF4A032 /* poImage.cpp in Sources */,

@@ -31,14 +31,12 @@ void AssemblyScene::setup(float _width, float _height){
     mHeight = _height;
     setbackground();
     
-    BonesRef head1, head2, backlegs, frontlegs, midspine, tail;
-    
-    head1 = Bones::create("head1.png",vec2(150.f,680.f),vec2(1000.f,230.f),head1Founded);
-    head2 = Bones::create("head2.png",vec2(320.f,680.f),vec2(1040.f,335.f),head2Founded);
-    backlegs = Bones::create("backlegs.png",vec2(500.f,680.f),vec2(540.f,380.f),backlegsFounded);
-    frontlegs = Bones::create("frontlegs.png",vec2(700.f,680.f),vec2(778.f,344.f),frontlegsFounded);
-    midspine = Bones::create("midspine.png",vec2(900.f,680.f),vec2(645.f,230.f),midspineFounded);
-    tail = Bones::create("tail.png",vec2(1100.f,680.f),vec2(310.f,260.f),tailFounded);
+    head1 = Bones::create("head1.png",vec2(150.f,730.f),vec2(1000.f,230.f),head1Founded);
+    head2 = Bones::create("head2.png",vec2(320.f,730.f),vec2(1040.f,335.f),head2Founded);
+    backlegs = Bones::create("backlegs.png",vec2(470.f,730.f),vec2(540.f,380.f),backlegsFounded);
+    frontlegs = Bones::create("frontlegs.png",vec2(650.f,730.f),vec2(787.f,355.f),frontlegsFounded);
+    midspine = Bones::create("midspine.png",vec2(850.f,730.f),vec2(645.f,230.f),midspineFounded);
+    tail = Bones::create("tail.png",vec2(1100.f,730.f),vec2(379.f,217.f),tailFounded);
     
     mBones.push_back(head1);
     mBones.push_back(head2);
@@ -49,6 +47,29 @@ void AssemblyScene::setup(float _width, float _height){
     
     setBones();
     instruction();
+    
+    //Complete text
+    ci::TextBox puzzleCompleteText = ci::TextBox();
+    puzzleCompleteText.size(700, 400);
+    puzzleCompleteText.color(ci::Color(1, 1, 1));
+    std::string textComplete = "That is a Stegasaur!!";
+    puzzleCompleteText.text(textComplete);
+    puzzleCompleteText.font(ci::Font("Chalkboard", 40));
+    
+    completeText = po::scene::TextBox::create(puzzleCompleteText);
+    completeText -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText -> setPosition(800.f,870.f);
+    completeText -> setVisible(false);
+    addChild(completeText);
+    
+    //Replay Button
+    mReplayButton = ReplayButton::create();
+    mReplayButton -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    mReplayButton -> setPosition(640.f,770.f);
+    mReplayButton -> setVisible(false);
+    addChild(mReplayButton);
+    
+    mReplayButton->getToggleStateChangeSignal().connect(std::bind(&AssemblyScene::onToggleStateChange, this, std::placeholders::_1));
 }
 
 void AssemblyScene::instruction(){
@@ -57,7 +78,7 @@ void AssemblyScene::instruction(){
     mFinger = po::scene::Image::create(finger);
     addChild(mFinger);
     
-    mFinger -> setPosition(150.f,680.f);
+    mFinger -> setPosition(150.f,730.f);
     mFinger -> setAlpha(0.f);
     ci::app::timeline().apply(&mFinger->getPositionAnim(), vec2(1000.f,230.f), 3.f,ci::EaseOutExpo()).delay(2.f);
     ci::app::timeline().apply(&mFinger->getAlphaAnim(), 1.f, 0.5f,ci::EaseOutExpo()).delay(1.f);
@@ -96,5 +117,24 @@ void AssemblyScene::setBones(){
 void AssemblyScene::update(vec2 _mousePos){
     for (int i=0; i<mBones.size(); i++) {
         mBones[i]-> update(_mousePos);
+    }
+    
+    if (head1->isPlaced && head2->isPlaced && backlegs->isPlaced && frontlegs->isPlaced && midspine->isPlaced && tail->isPlaced) {
+        puzzleComplete();
+    }
+}
+
+void AssemblyScene::puzzleComplete(){
+    cout << "Puzzle Complete!" << endl;
+    completeText -> setVisible(true);
+    mReplayButton -> setVisible(true);
+}
+
+void AssemblyScene::onToggleStateChange(bool state)
+{
+    if(state){
+
+    }else{
+
     }
 }

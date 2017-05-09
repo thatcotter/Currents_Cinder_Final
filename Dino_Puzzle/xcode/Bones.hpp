@@ -12,6 +12,8 @@
 #include "poShape.h"
 #include "poImage.h"
 #include "cinder/Signals.h"
+#include "poTextBox.h"
+#include "cinder/Rand.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -30,6 +32,7 @@ public:
     void display();
     BoneDragSignal &getBoneDragSignal(){return mBoneDragSignal;}
     
+    bool isPlaced;
 private:
     void setup(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound);
     void loadImage(fs::path _pathf);
@@ -39,12 +42,16 @@ private:
     
     bool isFound;
     bool isDrag;
-    bool isPlaced;
+
     vec2 currentPos;
     vec2 targetPos;
     vec2 mousePos;
     gl::TextureRef mTexture;
     po::scene::ImageRef mImage;
+    po::scene::TextBoxRef dragText;
+    
+    vector<std::string> dragTexts;
+    ci::TextBox ciTextBox;
     
     float mAnimationTime;
     float fullScale, smallScale;
