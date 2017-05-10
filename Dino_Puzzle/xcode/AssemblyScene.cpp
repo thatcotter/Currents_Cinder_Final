@@ -17,12 +17,6 @@ AssemblySceneRef AssemblyScene::create(float _width, float _height){
 AssemblyScene::AssemblyScene()
 :mWidth(0.f)
 ,mHeight(0.f)
-,head1Founded(true)
-,head2Founded(true)
-,backlegsFounded(true)
-,frontlegsFounded(true)
-,midspineFounded(true)
-,tailFounded(true)
 {
 }
 
@@ -31,12 +25,12 @@ void AssemblyScene::setup(float _width, float _height){
     mHeight = _height;
     setbackground();
     
-    head1 = Bones::create("head1.png",vec2(150.f,730.f),vec2(1000.f,230.f),head1Founded);
-    head2 = Bones::create("head2.png",vec2(320.f,730.f),vec2(1040.f,335.f),head2Founded);
-    backlegs = Bones::create("backlegs.png",vec2(470.f,730.f),vec2(540.f,380.f),backlegsFounded);
-    frontlegs = Bones::create("frontlegs.png",vec2(650.f,730.f),vec2(787.f,355.f),frontlegsFounded);
-    midspine = Bones::create("midspine.png",vec2(850.f,730.f),vec2(645.f,230.f),midspineFounded);
-    tail = Bones::create("tail.png",vec2(1100.f,730.f),vec2(379.f,217.f),tailFounded);
+    head1 = Bones::create("head1.png",vec2(150.f,730.f),vec2(1000.f,230.f));
+    head2 = Bones::create("head2.png",vec2(320.f,730.f),vec2(1040.f,335.f));
+    backlegs = Bones::create("backlegs.png",vec2(470.f,730.f),vec2(540.f,380.f));
+    frontlegs = Bones::create("frontlegs.png",vec2(650.f,730.f),vec2(787.f,355.f));
+    midspine = Bones::create("midspine.png",vec2(850.f,730.f),vec2(645.f,230.f));
+    tail = Bones::create("tail.png",vec2(1100.f,730.f),vec2(379.f,217.f));
     
     mBones.push_back(head1);
     mBones.push_back(head2);
@@ -90,10 +84,11 @@ void AssemblyScene::instruction(){
 
 void AssemblyScene::ifDragHideInstruction(){
     ci::app::timeline().apply(&mFinger->getAlphaAnim(), 0.f, 0.5f,ci::EaseOutExpo()).finishFn([&](){
-    mFinger -> setVisible(false);
+        mFinger -> setVisible(false);
     });
 }
-    
+
+
 void AssemblyScene::setbackground(){
     
     shadow = ci::gl::Texture::create(ci::loadImage(ci::app::loadAsset("background.jpg")));
@@ -111,13 +106,24 @@ void AssemblyScene::setbackground(){
 void AssemblyScene::setBones(){
     for (int i=0; i<mBones.size(); i++) {
         addChild(mBones[i]);
+        mBones[i]->setVisible(false);
     }
 }
 
-void AssemblyScene::update(vec2 _mousePos){
+void AssemblyScene::displayBones(vector<bool> _found){
+    for (int i=0; i<mBones.size(); i++) {
+        if (_found[i] == 1) {
+            mBones[i]->setVisible(true);
+        }
+    }
+}
+
+void AssemblyScene::update(vec2 _mousePos, vector<bool> _found){
     for (int i=0; i<mBones.size(); i++) {
         mBones[i]-> update(_mousePos);
     }
+    
+    displayBones(_found);
     
     if (head1->isPlaced && head2->isPlaced && backlegs->isPlaced && frontlegs->isPlaced && midspine->isPlaced && tail->isPlaced) {
         puzzleComplete();

@@ -19,8 +19,6 @@
 		0411BDFD1EB165F800D2F9FD /* AssemblyScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0411BDF91EB165F800D2F9FD /* AssemblyScene.cpp */; settings = {ASSET_TAGS = (); }; };
 		0411BDFE1EB165F800D2F9FD /* Bones.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0411BDFB1EB165F800D2F9FD /* Bones.cpp */; settings = {ASSET_TAGS = (); }; };
 		041CE5121EC183A200CA101E /* ReplayButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041CE5101EC183A200CA101E /* ReplayButton.cpp */; settings = {ASSET_TAGS = (); }; };
-		042418DD1EC3713A00306FFF /* SwitchButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042418DB1EC3713A00306FFF /* SwitchButton.cpp */; settings = {ASSET_TAGS = (); }; };
-		042418E01EC3802300306FFF /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042418DE1EC3802300306FFF /* Particle.cpp */; settings = {ASSET_TAGS = (); }; };
 		27F5CA0F37F44BD0A232110D /* poNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5C48C294DBD410AB7BB9709 /* poNode.cpp */; };
 		50898C8C1EB12F7100818C2F /* DigScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 50898C8A1EB12F7100818C2F /* DigScreen.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
@@ -54,10 +52,6 @@
 		0411BDFC1EB165F800D2F9FD /* Bones.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bones.hpp; sourceTree = "<group>"; };
 		041CE5101EC183A200CA101E /* ReplayButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplayButton.cpp; sourceTree = "<group>"; };
 		041CE5111EC183A200CA101E /* ReplayButton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ReplayButton.hpp; sourceTree = "<group>"; };
-		042418DB1EC3713A00306FFF /* SwitchButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SwitchButton.cpp; sourceTree = "<group>"; };
-		042418DC1EC3713A00306FFF /* SwitchButton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SwitchButton.hpp; sourceTree = "<group>"; };
-		042418DE1EC3802300306FFF /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
-		042418DF1EC3802300306FFF /* Particle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Particle.hpp; sourceTree = "<group>"; };
 		0983A4290D7246BFA4E43479 /* poScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = poScene.h; path = ../blocks/poScene/src/poScene/poScene.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DB7B2E1130245968AF2721D /* Dino_Puzzle_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Dino_Puzzle_Prefix.pch; sourceTree = "<group>"; };
@@ -133,10 +127,6 @@
 				0411BDFC1EB165F800D2F9FD /* Bones.hpp */,
 				041CE5101EC183A200CA101E /* ReplayButton.cpp */,
 				041CE5111EC183A200CA101E /* ReplayButton.hpp */,
-				042418DB1EC3713A00306FFF /* SwitchButton.cpp */,
-				042418DC1EC3713A00306FFF /* SwitchButton.hpp */,
-				042418DE1EC3802300306FFF /* Particle.cpp */,
-				042418DF1EC3802300306FFF /* Particle.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -323,7 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0411BDFD1EB165F800D2F9FD /* AssemblyScene.cpp in Sources */,
-				042418E01EC3802300306FFF /* Particle.cpp in Sources */,
 				8EDB03D10F234EEE913411C0 /* Dino_PuzzleApp.cpp in Sources */,
 				041CE5121EC183A200CA101E /* ReplayButton.cpp in Sources */,
 				D72CAA43A5F34015B9E4D374 /* poEventCenter.cpp in Sources */,
@@ -337,7 +326,6 @@
 				A4CABB3F3FCC48439328BD27 /* poScene.cpp in Sources */,
 				A5540159C5FD479BA13CE34F /* poShape.cpp in Sources */,
 				884AA8DFDA104653B6C00A98 /* poTextBox.cpp in Sources */,
-				042418DD1EC3713A00306FFF /* SwitchButton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

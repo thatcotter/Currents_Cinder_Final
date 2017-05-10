@@ -31,7 +31,7 @@ class AssemblyScene: public po::scene::NodeContainer{
     
 public:
     static AssemblySceneRef create(float _width, float _height);
-    void update(vec2 _mousePos);
+    void update(vec2 _mousePos, vector<bool> _found);
     void getMousePos(vec2 _mousePos);
     void onToggleStateChange(bool state);
     
@@ -39,6 +39,7 @@ private:
     AssemblyScene();
     void setup(float _width, float _height);
     void setBones();
+    void displayBones(vector<bool> _found);
     void setbackground();
     void instruction();
     void ifDragHideInstruction();
@@ -48,11 +49,13 @@ private:
     bool head1Founded, head2Founded, backlegsFounded, frontlegsFounded, midspineFounded, tailFounded;
 
     gl::TextureRef shadow;
-    gl::TextureRef finger;
     
     //background
     po::scene::ShapeRef mBgRect;
     po::scene::ImageRef mShadow;
+
+    //instruction
+    gl::TextureRef finger;
     po::scene::ImageRef mFinger;
     
     po::scene::TextBoxRef completeText;

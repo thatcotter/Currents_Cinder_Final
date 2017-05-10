@@ -8,15 +8,14 @@
 
 #include "Bones.hpp"
 
-BonesRef Bones::create(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound){
+BonesRef Bones::create(fs::path _path,vec2 _currentPos,vec2 _targetPos){
     BonesRef ref = std::shared_ptr<Bones>(new Bones());
-    ref -> setup(_path, _currentPos, _targetPos, _isFound);
+    ref -> setup(_path, _currentPos, _targetPos);
     return ref;
 }
 
 Bones::Bones()
-:isFound(true)
-,isDrag(false)
+:isDrag(false)
 ,isPlaced(false)
 ,currentPos(vec2(0.f,0.f))
 ,targetPos(vec2(0.f,0.f))
@@ -33,11 +32,11 @@ void Bones::loadImage(fs::path _path){
     addChild(mImage);
 }
 
-void Bones::setup(fs::path _path,vec2 _currentPos,vec2 _targetPos,bool _isFound){
+void Bones::setup(fs::path _path,vec2 _currentPos,vec2 _targetPos){
     loadImage(_path);
     currentPos = _currentPos;
     targetPos = _targetPos;
-    isFound = _isFound;
+//    isFound = _isFound;
     
     mAnimationTime = 0.2f;
     fullScale = 0.25f;
@@ -136,10 +135,10 @@ void Bones::update(vec2 _mousePos){
 void Bones::display(){
     
     mImage -> setPosition(currentPos);
-    mImage -> setVisible(false);
+    mImage -> setVisible(true);
     mImage -> setAlignment(po::scene::Alignment::CENTER_CENTER);
     
-    if (isFound == true) {
-        mImage -> setVisible(true);
-    }
+//    if (isFound == true) {
+//        mImage -> setVisible(true);
+//    }
 }

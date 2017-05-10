@@ -17,4 +17,7 @@ dependencies: \
   /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/blocks/poScene/src/poScene/poImage.h \
   /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/Bones.hpp \
   ../../../include/cinder/Rand.h \
-  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/ReplayButton.hpp
+  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/ReplayButton.hpp \
+  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/DigScreen.hpp \
+  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/Particle.hpp \
+  /Users/Mac/Desktop/cinder_0.9.0_mac/Currents_Cinder_Final/Dino_Puzzle/xcode/SwitchButton.hpp
