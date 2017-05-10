@@ -8,21 +8,24 @@
 
 #include "Particle.hpp"
 
-ParticleRef Particle::create(glm::vec2 startPosition, ci::Color color)
+//ParticleRef Particle::create(glm::vec2 startPosition, ci::Color color)
+ParticleRef Particle::create(glm::vec2 startPosition, std::string asset )
 {
-    ParticleRef ref = std::shared_ptr<Particle>( new Particle( startPosition, color ));
+    ParticleRef ref = std::shared_ptr<Particle>( new Particle( startPosition, asset ));
     ref->setup();
     return ref;
 }
 
-Particle::Particle( glm::vec2 startPosition, ci::Color color )
+Particle::Particle( glm::vec2 startPosition, std::string asset )
 {
     position = startPosition;
     friction = 0.9f;
     velocity = glm::vec2( 0.f, 0.f );
     acceleration = glm::vec2( 0.f, 0.f );
     friction = 0.95f;
-    mColor = color;
+//    mColor = color;
+    auto img = loadImage( cinder::app::loadAsset( asset ) );
+    mTex = ci::gl::Texture::create(img);
 }
 
 void Particle::setup()
@@ -60,8 +63,10 @@ void Particle::update()
 
 void Particle::draw()
 {
-    ci::gl::color(mColor);
+//    ci::gl::color(mColor);
 //    ci::gl::drawSolidCircle(position, 16);
-    ci::Rectf rect = ci::Rectf(position.x, position.y, position.x+26, position.y+26);
-    ci::gl::drawSolidRect(rect);
+//    ci::Rectf rect = ci::Rectf(position.x, position.y, position.x+26, position.y+26);
+//    ci::gl::drawSolidRect(rect);
+    ci::Rectf destRect = ci::Rectf(position.x,position.y,position.x+150,position.y+150);
+    ci::gl::draw(mTex, ci::Rectf(mTex->getBounds()).getCenteredFit(destRect, true));
 }

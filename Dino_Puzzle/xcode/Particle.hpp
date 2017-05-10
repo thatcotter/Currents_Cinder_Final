@@ -16,9 +16,12 @@ typedef std::shared_ptr<Particle> ParticleRef;
 class Particle
 {
 public:
-    static ParticleRef create(glm::vec2 startPosition, ci::Color color);
+//    static ParticleRef create(glm::vec2 startPosition, ci::Color color);
+    static ParticleRef create(glm::vec2 startPosition, std::string asset);
     
-    Particle( glm::vec2 startPosition, ci::Color color );
+//    Particle( glm::vec2 startPosition, ci::Color color );
+    Particle( glm::vec2 startPosition, std::string asset );
+    
     
     void setup();
     void update();
@@ -38,6 +41,8 @@ private:
     glm::vec2 force;
     
     ci::Color mColor;
+    
+    ci::gl::TextureRef mTex;
     
     float mass;
     float friction;

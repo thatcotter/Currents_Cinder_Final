@@ -28,6 +28,8 @@ public:
     void update(vec2 _mousePos);
     void display();
     
+    bool isFound;
+    
 private:
     void setup(fs::path _path,vec2 _currentPos,vec2 _targetPos);
     void loadImage(fs::path _pathf);
@@ -35,7 +37,7 @@ private:
     void onMouseEvent(po::scene::MouseEvent &event);
     void toTarget();
     
-    bool isFound;
+    
     bool isDrag;
     bool isPlaced;
     vec2 currentPos;

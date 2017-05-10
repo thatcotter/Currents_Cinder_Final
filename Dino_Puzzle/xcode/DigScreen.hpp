@@ -14,6 +14,7 @@
 
 //#include "ParticleSystem.hpp"
 #include "Particle.hpp"
+#include "Bones.hpp"
 
 #ifndef DigScreen_hpp
 #define DigScreen_hpp
@@ -40,6 +41,8 @@ public:
 private:
     DigScreen();
     void setup();
+    
+    void checkFound();
     
     void renderToFbo();
     int FBO_WIDTH;
@@ -71,8 +74,18 @@ private:
 //    ParticleSystem mSystem;
     std::vector<ParticleRef> mParticles;
     
+    ci::gl::TextureRef mTex;
+    
     float			mRange;
     float			mRepulsionFactor;
     
+    vector<BonesRef> mBones;
+    vector<vec2> bonesPos;
+    vector<gl::TextureRef> bonesTex;
+    vector<int> bonesOff;
+    
+    vector<bool> bonesFound;
+    
+    ci::gl::TextureRef mHead;
 };
 #endif /* DigScreen_hpp */
