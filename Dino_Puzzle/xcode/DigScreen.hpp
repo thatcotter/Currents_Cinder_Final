@@ -38,6 +38,8 @@ public:
     void repulseFrom( ci::vec2 pos );
     void bounceFromEdge();
     
+    vector<bool> bonesFound;
+    
 private:
     DigScreen();
     void setup();
@@ -84,7 +86,6 @@ private:
     vector<gl::TextureRef> bonesTex;
     vector<int> bonesOff;
     
-    vector<bool> bonesFound;
     
     ci::gl::TextureRef mHead;
 };
