@@ -44,7 +44,7 @@ class Dino_PuzzleApp : public App {
 
 void Dino_PuzzleApp::setup()
 {
-//    ci::app::setFullScreen(true);
+    ci::app::setFullScreen(true);
     
     mNodeContainer = po::scene::NodeContainer::create();
     mScene = po::scene::Scene::create(mNodeContainer);

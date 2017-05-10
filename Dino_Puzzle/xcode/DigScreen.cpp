@@ -194,6 +194,97 @@ void DigScreen::setup()
     
     //brush
     brush = ci::gl::Texture::create(ci::loadImage(ci::app::loadAsset("brush.png")));
+    
+    ci::TextBox puzzleCompleteText0 = ci::TextBox();
+    puzzleCompleteText0.size(700, 400);
+    puzzleCompleteText0.color(ci::Color(1, 1, 1));
+    std::string textComplete0 = "Bones Found:" + to_string(0) + "/6";
+    puzzleCompleteText0.text(textComplete0);
+    puzzleCompleteText0.font(ci::Font("Chalkboard", 40));
+    
+    completeText0 = po::scene::TextBox::create(puzzleCompleteText0);
+    completeText0 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText0 -> setPosition(100.f,100.f);
+    completeText0 -> setVisible(false);
+    addChild(completeText0);
+    
+    ci::TextBox puzzleCompleteText1 = ci::TextBox();
+    puzzleCompleteText1.size(700, 400);
+    puzzleCompleteText1.color(ci::Color(1, 1, 1));
+    std::string textComplete1 = "Bones Found:" + to_string(1) + "/6";
+    puzzleCompleteText1.text(textComplete1);
+    puzzleCompleteText1.font(ci::Font("Chalkboard", 40));
+    
+    completeText1 = po::scene::TextBox::create(puzzleCompleteText1);
+    completeText1 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText1 -> setPosition(100.f,100.f);
+    completeText1 -> setVisible(false);
+    addChild(completeText1);
+    //
+    ci::TextBox puzzleCompleteText2 = ci::TextBox();
+    puzzleCompleteText2.size(700, 400);
+    puzzleCompleteText2.color(ci::Color(1, 1, 1));
+    std::string textComplete2 = "Bones Found:" + to_string(2) + "/6";
+    puzzleCompleteText2.text(textComplete2);
+    puzzleCompleteText2.font(ci::Font("Chalkboard", 40));
+    
+    completeText2 = po::scene::TextBox::create(puzzleCompleteText2);
+    completeText2 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText2 -> setPosition(100.f,100.f);
+    completeText2 -> setVisible(false);
+    addChild(completeText2);
+    
+    ci::TextBox puzzleCompleteText3 = ci::TextBox();
+    puzzleCompleteText3.size(700, 400);
+    puzzleCompleteText3.color(ci::Color(1, 1, 1));
+    std::string textComplete3 = "Bones Found:" + to_string(3) + "/6";
+    puzzleCompleteText3.text(textComplete3);
+    puzzleCompleteText3.font(ci::Font("Chalkboard", 40));
+    
+    completeText3 = po::scene::TextBox::create(puzzleCompleteText3);
+    completeText3 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText3 -> setPosition(100.f,100.f);
+    completeText3 -> setVisible(false);
+    addChild(completeText3);
+    
+    ci::TextBox puzzleCompleteText4 = ci::TextBox();
+    puzzleCompleteText4.size(700, 400);
+    puzzleCompleteText4.color(ci::Color(1, 1, 1));
+    std::string textComplete4 = "Bones Found:" + to_string(4) + "/6";
+    puzzleCompleteText4.text(textComplete4);
+    puzzleCompleteText4.font(ci::Font("Chalkboard", 40));
+    
+    completeText4 = po::scene::TextBox::create(puzzleCompleteText4);
+    completeText4 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText4 -> setPosition(100.f,100.f);
+    completeText4 -> setVisible(false);
+    addChild(completeText4);
+    //
+    ci::TextBox puzzleCompleteText5 = ci::TextBox();
+    puzzleCompleteText5.size(700, 400);
+    puzzleCompleteText5.color(ci::Color(1, 1, 1));
+    std::string textComplete5 = "Bones Found:" + to_string(5) + "/6";
+    puzzleCompleteText5.text(textComplete5);
+    puzzleCompleteText5.font(ci::Font("Chalkboard", 40));
+    
+    completeText5 = po::scene::TextBox::create(puzzleCompleteText5);
+    completeText5 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText5 -> setPosition(100.f,100.f);
+    completeText5 -> setVisible(false);
+    addChild(completeText5);
+    
+    ci::TextBox puzzleCompleteText6 = ci::TextBox();
+    puzzleCompleteText6.size(700, 400);
+    puzzleCompleteText6.color(ci::Color(1, 1, 1));
+    std::string textComplete6 = "Bones Found:" + to_string(6) + "/6";
+    puzzleCompleteText6.text(textComplete6);
+    puzzleCompleteText6.font(ci::Font("Chalkboard", 40));
+    
+    completeText6 = po::scene::TextBox::create(puzzleCompleteText6);
+    completeText6 -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+    completeText6 -> setPosition(100.f,100.f);
+    completeText6 -> setVisible(false);
+    addChild(completeText6);
 }
 
 void DigScreen::mouseDown(ci::app::MouseEvent event)
@@ -248,6 +339,43 @@ void DigScreen::checkFound()
     
 }
 
+void DigScreen::updateText()
+{
+    int found = 0;
+    for (int i = 0; i < bonesFound.size(); i++) {
+        if (bonesFound[i]) {
+            found++;
+            //            completeText->setVisible(true);
+        }
+    }
+    switch (found) {
+        case 0:
+            completeText0->draw();
+            break;
+        case 1:
+            completeText1->draw();
+            break;
+        case 2:
+            completeText2->draw();
+            break;
+        case 3:
+            completeText3->draw();
+            break;
+        case 4:
+            completeText4->draw();
+            break;
+        case 5:
+            completeText5->draw();
+            break;
+        case 6:
+            completeText6->draw();
+            break;
+            
+        default:
+            break;
+    }
+}
+
 void DigScreen::update(vec2 _MousePos)
 {
 //    brushPos = _MousePos;
@@ -258,6 +386,7 @@ void DigScreen::update(vec2 _MousePos)
         p->update();
     }
 }
+
 
 void DigScreen::draw()
 {
@@ -273,6 +402,16 @@ void DigScreen::draw()
     for (auto& p : mParticles){
         p->draw();
     }
+    
+    gl::pushModelMatrix();
+    
+    gl::translate(vec2(100, 600));
+    updateText();
+    
+    gl::popModelMatrix();
+    
     gl::draw(brush,brushPos);
+    
+    
 }
 

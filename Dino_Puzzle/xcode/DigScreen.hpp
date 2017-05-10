@@ -46,6 +46,8 @@ private:
     
     void checkFound();
     
+    void updateText();
+    
     void renderToFbo();
     int FBO_WIDTH;
     int FBO_HEIGHT;
@@ -92,5 +94,14 @@ private:
     gl::TextureRef brush;
     
     vec2 brushPos;
+    
+    po::scene::TextBoxRef completeText;
+    po::scene::TextBoxRef completeText0;
+    po::scene::TextBoxRef completeText1;
+    po::scene::TextBoxRef completeText2;
+    po::scene::TextBoxRef completeText3;
+    po::scene::TextBoxRef completeText4;
+    po::scene::TextBoxRef completeText5;
+    po::scene::TextBoxRef completeText6;
 };
 #endif /* DigScreen_hpp */
