@@ -74,7 +74,7 @@ void AssemblyScene::instruction(){
     
     mFinger -> setPosition(150.f,730.f);
     mFinger -> setAlpha(0.f);
-    ci::app::timeline().apply(&mFinger->getPositionAnim(), vec2(1000.f,230.f), 3.f,ci::EaseOutExpo()).delay(2.f);
+    ci::app::timeline().apply(&mFinger->getPositionAnim(), vec2(1000.f,230.f), 3.f,ci::EaseOutExpo()).delay(2.f).loop();
     ci::app::timeline().apply(&mFinger->getAlphaAnim(), 1.f, 0.5f,ci::EaseOutExpo()).delay(1.f);
     
     for (int i=0; i<mBones.size(); i++) {
@@ -139,8 +139,17 @@ void AssemblyScene::puzzleComplete(){
 void AssemblyScene::onToggleStateChange(bool state)
 {
     if(state){
-
-    }else{
-
+//        head1 -> setPosition(150.f,730.f);
+//        head2 -> setPosition(320.f,730.f);
+//        backlegs -> setPosition(470.f,730.f);
+//        frontlegs -> setPosition(650.f,730.f);
+//        midspine -> setPosition(850.f,730.f);
+//        tail -> setPosition(1100.f,730.f);
+//        
+//        for (int i=0; i<mBones.size(); i++) {
+//            mBones[i] -> setAlignment(po::scene::Alignment::CENTER_CENTER);
+//            mBones[i] -> setScale(0.15f);
+//            mBones[i] -> setFillColor(1.f,1.f,1.f);
+//        }
     }
 }

@@ -194,12 +194,11 @@ void DigScreen::setup()
     
     //brush
     brush = ci::gl::Texture::create(ci::loadImage(ci::app::loadAsset("brush.png")));
-    mBrush = po::scene::Image::create(brush);
-    addChild(mBrush);
 }
 
 void DigScreen::mouseDown(ci::app::MouseEvent event)
 {
+    brushPos = vec2(event.getPos().x-55.f,event.getPos().y-50.f);
     this->repulseFrom(event.getPos());
 }
 
@@ -251,13 +250,13 @@ void DigScreen::checkFound()
 
 void DigScreen::update(vec2 _MousePos)
 {
+//    brushPos = _MousePos;
+    
     //    bounceFromEdge();
     checkFound();
     for (auto& p : mParticles){
         p->update();
     }
-    cout << _MousePos << endl;
-    mBrush -> setPosition(_MousePos);
 }
 
 void DigScreen::draw()
@@ -274,7 +273,6 @@ void DigScreen::draw()
     for (auto& p : mParticles){
         p->draw();
     }
-    
-    mBrush -> draw();
+    gl::draw(brush,brushPos);
 }
 

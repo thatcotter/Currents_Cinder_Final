@@ -90,6 +90,7 @@ private:
     
     //Brush
     gl::TextureRef brush;
-    po::scene::ImageRef mBrush;
+    
+    vec2 brushPos;
 };
 #endif /* DigScreen_hpp */
